@@ -6,7 +6,7 @@ Esta librería permite trabajar con el número de identificación que se utiliza
 
 Se ha desarrollado pensando en que funcione con **Laravel**.
 
-## Aclaración sobre la validación
+### Aclaración sobre la validación
 
 Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, no comprueba la existencia real de dicho rut.
 
