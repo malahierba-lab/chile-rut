@@ -2,13 +2,13 @@
  
 use Illuminate\Support\Facades\Facade;
  
-class Rut extends Facade {
+class ChileRut extends Facade {
  
   /**
    * Get the registered name of the component.
    *
    * @return string
    */
-  protected static function getFacadeAccessor() { return 'rut'; }
+  protected static function getFacadeAccessor() { return 'chilerut'; }
  
 }

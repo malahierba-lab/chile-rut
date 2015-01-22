@@ -3,7 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 
 class ChileRutServiceProvider extends ServiceProvider {
-	
+
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -18,9 +18,9 @@ class ChileRutServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['rut'] = $this->app->share(function($app)
+		$this->app['chilerut'] = $this->app->share(function($app)
 		{
-			return new Rut;
+			return new ChileRut;
 		});
 	}
 	
@@ -41,7 +41,7 @@ class ChileRutServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('rut');
+		return array('chilerut');
 	}
 
 }

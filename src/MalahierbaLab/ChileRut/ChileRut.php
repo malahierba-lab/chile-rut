@@ -1,6 +1,6 @@
 <?php namespace MalahierbaLab\ChileRut;
 
-class Rut {
+class ChileRut {
 	
 	/**
 	 * Valida un RUT
