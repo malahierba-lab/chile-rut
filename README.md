@@ -14,7 +14,7 @@ Sólo valida el número de identificación respecto a cumplir con el algoritmo q
 
 Para instalar esta librería basta con que la agregues a la sección *require* del composer.json de tu proyecto y luego ejecutes *composer update*
 
-"malahierba-lab/chile-rut": "dev-master"
+    "malahierba-lab/chile-rut": "dev-master"
 
 ## Licencia
 
