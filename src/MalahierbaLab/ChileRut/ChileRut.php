@@ -42,6 +42,7 @@ class ChileRut {
 				return FALSE;
 		}
 		
+		//Calculamos el dígito verificador
 		$txt		= array_reverse(str_split($numero));
 		$sum		= 0;
 		$factors	= array(2,3,4,5,6,7,2,3,4,5,6,7);
@@ -59,6 +60,10 @@ class ChileRut {
 			$digit	= 'K';
 		else
 			$digit = $b;
+
+		//Convertimos el número a cadena para efectos de poder comparar
+		$digit = (string)$digit;
+
 		
 		if($digit == $digitoVerificador)
 			return TRUE;
@@ -80,6 +85,12 @@ class ChileRut {
 	 */
 	public function clean($originalRut) {
 		
+		//Eliminamos espacios al principio y final
+		$originalRut = trim($originalRut);
+
+		//En caso de existir, eliminamos ceros ("0") a la izquierda
+		$originalRut = ltrim($originalRut, '0');
+
 		$input		= str_split($originalRut);
 		$cleanedRut	= '';
 
