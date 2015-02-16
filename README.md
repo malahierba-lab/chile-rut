@@ -41,7 +41,7 @@ En caso de que tengamos un rut sin digito verificador y necesitemos calcularlo, 
 
     $digitoVerificador = RUT::digitoVerificador($rut);
 
-OBS: RUT::digitoVerificador() considerando el caso en que el dígito verificador sea 'K', se determinó que esta función siempre devuelve un string para ser consistentes con su uso y poder realizar comparaciones con mayor control.
+OBS: considerando el caso en que el dígito verificador sea 'K', se determinó que esta función siempre devuelve un string para ser consistentes con su uso y poder realizar comparaciones con mayor control.
 
 ## Formatos de RUT soportados
 
