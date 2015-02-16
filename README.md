@@ -6,7 +6,7 @@ Esta librería permite trabajar con el número de identificación que se utiliza
 
 Se ha desarrollado pensando en que funcione con **Laravel**.
 
-### Aclaración sobre la validación
+### Aclaración sobre el alcance
 
 Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, no comprueba la existencia real de dicho rut.
 
@@ -26,12 +26,22 @@ Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del arch
 
 ## Utilización
 
+### Validar un rut
+
 Para validar un rut chileno simplemente usas: RUT::check($rut_a_validar). Ej:
 
     if (RUT::check('12.345.678-9.))
       echo 'es verdadero';
     else
       echo 'es falso';
+
+### Calcular dígito verificador
+
+En caso de que tengamos un rut sin digito verificador y necesitemos calcularlo, se usa: RUT::digitoVerificador($rut). Ej:
+
+    $digitoVerificador = RUT::digitoVerificador($rut);
+
+OBS: RUT::digitoVerificador() considerando el caso en que el dígito verificador sea 'K', se determinó que esta función siempre devuelve un string para ser consistentes con su uso y poder realizar comparaciones con mayor control.
 
 ## Formatos de RUT soportados
 
