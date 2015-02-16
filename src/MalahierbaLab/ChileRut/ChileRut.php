@@ -6,8 +6,8 @@ class ChileRut {
 	 * Valida un RUT
 	 *
 	 * Retorna verdadero/falso para un rut que se le entregue.
-	 * Para un rut válido del tipo xx.xxx.xxx-y se consideran válidas
-	 * las siguientes formas de escribirlo:
+	 *
+	 * Se consideran válidas las siguientes formas de escribir el rut:
 	 *
 	 ** xx.xxx.xxx-y (con separación de miles y con guión antes del dígito verificador)
 	 ** xxxxxxxx-y (sin separación de miles y con guión antes del dígito verificador)
