@@ -32,7 +32,7 @@ Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del arch
 
 Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
 
-	use Malahierba\ChileRut\;
+	use Malahierba\ChileRut;
 
 ## Utilización
 
