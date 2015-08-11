@@ -1,4 +1,4 @@
-<?php namespace MalahierbaLab\ChileRut;
+<?php namespace Malahierba\ChileRut;
 
 class ChileRut {
 	

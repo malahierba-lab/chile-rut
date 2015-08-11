@@ -1,5 +1,5 @@
 {
-    "name": "malahierba-lab/chile-rut",
+    "name": "malahierba/chile-rut",
     "description": "Librería Laravel para el manejo y validación de RUT chileno",
     "keywords": ["rut", "chile", "laravel"],
     "license" : "MIT",
@@ -10,12 +10,12 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "php": ">=5.5.18",
+        "laravel/framework": "5.1.*"
     },
     "autoload": {
-        "psr-0": {
-            "MalahierbaLab\\ChileRut": "src/"
+        "psr-4": {
+            "Malahierba\\ChileRut\\": "src/"
         }
     },
     "minimum-stability": "stable"

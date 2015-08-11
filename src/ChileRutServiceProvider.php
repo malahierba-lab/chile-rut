@@ -1,4 +1,4 @@
-<?php namespace MalahierbaLab\ChileRut;
+<?php namespace Malahierba\ChileRut;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,7 +9,7 @@ class ChileRutServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = true;
+	protected $defer = false;
 
 	/**
 	 * Register the service provider.
@@ -31,17 +31,5 @@ class ChileRutServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('malahierba-lab/chile-rut');
 	}
-	
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array('chilerut');
-	}
-
 }

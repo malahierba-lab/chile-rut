@@ -1,4 +1,4 @@
-<?php namespace MalahierbaLab\ChileRut\Facades;
+<?php namespace Malahierba\ChileRut\Facades;
  
 use Illuminate\Support\Facades\Facade;
  
