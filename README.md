@@ -14,15 +14,25 @@ Sólo valida el número de identificación respecto a cumplir con el algoritmo q
 
 Para instalar esta librería basta con que la agregues a la sección *require* del composer.json de tu proyecto y luego ejecutes *composer update*
 
-    "malahierba-lab/chile-rut": "dev-master"
+Para Laravel 5.1
+
+    "malahierba-lab/chile-rut": "5.1.*"
+
+Para Laravel 4.2
+
+    "malahierba-lab/chile-rut": "4.2.*"
 
 Luego carga el Service Provider dentro del arreglo *'providers'* del archivo *app/config/app.php*
 
-    'MalahierbaLab\ChileRut\ChileRutServiceProvider'
+    'Malahierba\ChileRut\ChileRutServiceProvider'
 
 Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del archivo *app/config/app.php* en el arreglo 'aliases' para poder invocar las funcionalidades directamente.
 
-    'RUT' => 'MalahierbaLab\ChileRut\Facades\ChileRut'
+    'RUT' => 'Malahierba\ChileRut\Facades\ChileRut'
+
+Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
+
+	use Malahierba\ChileRut\;
 
 ## Utilización
 
