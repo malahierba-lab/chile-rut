@@ -1,11 +1,11 @@
 {
-    "name": "malahierba-lab/chile-rut",
+    "name": "malahierba/chile-rut",
     "description": "Librería Laravel para el manejo y validación de RUT chileno",
     "keywords": ["rut", "chile", "laravel"],
     "license" : "MIT",
     "authors": [
         {
-            "name": "malahierba-lab",
+            "name": "malahierba team",
             "email": "lab@malahierba.cl",
             "homepage": "http://malahierba.cl"
         }
