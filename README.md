@@ -22,6 +22,8 @@ Para Laravel 4.2
 
     "malahierba-lab/chile-rut": "4.2.*"
 
+**Importante:** Si estás usando actualmente la versión "dev-master" **debes cambiarlo** por una de las versiones indicadas de acuerdo a la versión de Laravel que estés utilizando.
+
 Luego carga el Service Provider dentro del arreglo *'providers'* del archivo *app/config/app.php*
 
     'Malahierba\ChileRut\ChileRutServiceProvider'
