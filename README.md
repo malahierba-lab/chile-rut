@@ -47,12 +47,12 @@ Para validar un rut chileno simplemente usas: RUT::check($rut_a_validar). Ej:
 
 Recuerda que en caso de no usar el Facade, debes usar la clase misma:
 
-  $chilerut = new ChileRut; //o \Malahierba\ChileRut\ChilRut en caso de que no hayas importado la clase
+    $chilerut = new ChileRut; //o \Malahierba\ChileRut\ChilRut en caso de que no hayas importado la clase
 
-  if ($chilerut::check('12.345.678-9.))
-      echo 'es verdadero';
-    else
-      echo 'es falso';
+    if ($chilerut::check('12.345.678-9.))
+        echo 'es verdadero';
+      else
+        echo 'es falso';
 
 ### Calcular dígito verificador
 
