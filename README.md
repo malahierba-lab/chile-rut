@@ -4,11 +4,11 @@
 
 Esta librería permite trabajar con el número de identificación que se utiliza en chile para personas, tanto naturales como jurídicas, pudiendo realizar las tareas de validación y formato.
 
-Se ha desarrollado pensando en que funcione con **Laravel**.
+Se ha desarrollado pensando en **Laravel**.
 
 ### Aclaración sobre el alcance
 
-Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, no comprueba la existencia real de dicho rut.
+Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, **no comprueba la existencia real de dicho rut**.
 
 ## Instalación
 
@@ -32,7 +32,7 @@ Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del arch
 
 Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
 
-	use Malahierba\ChileRut;
+	use Malahierba\ChileRut\ChileRut;
 
 ## Utilización
 
@@ -41,6 +41,15 @@ Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la 
 Para validar un rut chileno simplemente usas: RUT::check($rut_a_validar). Ej:
 
     if (RUT::check('12.345.678-9.))
+      echo 'es verdadero';
+    else
+      echo 'es falso';
+
+Recuerda que en caso de no usar el Facade, debes usar la clase misma:
+
+  $chilerut = new ChileRut; //o \Malahierba\ChileRut\ChilRut en caso de que no hayas importado la clase
+
+  if ($chilerut::check('12.345.678-9.))
       echo 'es verdadero';
     else
       echo 'es falso';

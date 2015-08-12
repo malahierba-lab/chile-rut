@@ -18,6 +18,5 @@
         "psr-4": {
             "Malahierba\\ChileRut\\": "src/"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
