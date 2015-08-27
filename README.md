@@ -25,13 +25,23 @@ Para Laravel 4.2
 **Importante:** Si estás usando actualmente la versión "dev-master" **debes cambiarlo** por una de las versiones indicadas de acuerdo a la versión de Laravel que estés utilizando.
 
 Luego carga el Service Provider dentro del arreglo *'providers'* del archivo *app/config/app.php*
+Para Laravel 5.1
+
+    Malahierba\ChileRut\ChileRutServiceProvider::class
+    
+Para Laravel 4.2
 
     'Malahierba\ChileRut\ChileRutServiceProvider'
 
 Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del archivo *app/config/app.php* en el arreglo 'aliases' para poder invocar las funcionalidades directamente.
+Para Laravel 5.1
+
+    'RUT' => Malahierba\ChileRut\Facades\ChileRut::class
+
+Para Laravel 4.2
 
     'RUT' => 'Malahierba\ChileRut\Facades\ChileRut'
-
+    
 Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
 
 	use Malahierba\ChileRut\ChileRut;
