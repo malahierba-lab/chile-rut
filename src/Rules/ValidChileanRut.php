@@ -40,7 +40,6 @@ class ValidChileanRut implements Rule
      */
     public function passes($attribute, $value)
     {
-        logger('validando');
         return $this->chileRUT->check($value);
     }
 
