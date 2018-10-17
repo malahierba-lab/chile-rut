@@ -1,4 +1,4 @@
-#Chile Rut
+# Chile Rut
 
 ## Introducción
 
@@ -29,7 +29,7 @@ Luego carga el Service Provider dentro del arreglo *'providers'* del archivo *ap
 Para Laravel 5.x
 
     Malahierba\ChileRut\ChileRutServiceProvider::class
-    
+
 Para Laravel 4.2
 
     'Malahierba\ChileRut\ChileRutServiceProvider'
@@ -43,7 +43,7 @@ Para Laravel 5.x
 Para Laravel 4.2
 
     'RUT' => 'Malahierba\ChileRut\Facades\ChileRut'
-    
+
 Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
 
 	use Malahierba\ChileRut\ChileRut;
@@ -67,6 +67,21 @@ Recuerda que en caso de no usar el Facade, debes usar la clase misma:
         echo 'es verdadero';
       else
         echo 'es falso';
+
+### Validar un RUT con Laravel
+
+Ejemplo de validación de petición usando regla de validación personalizada:
+
+```
+use Malahierba\ChileRut\ChileRut;
+use Malahierba\ChileRut\Rules\ValidChileanRut;
+
+$request->validate([
+    'rut' => ['required', 'string', new ValidChileanRut(new ChileRut)],
+]);
+```
+
+> Ref: [Laravel: Custom Validation Rules](https://laravel.com/docs/validation#custom-validation-rules)
 
 ### Calcular dígito verificador
 
