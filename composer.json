@@ -14,9 +14,24 @@
         "php": ">=5.5.18",
         "laravel/framework": "5.*"
     },
+    "require-dev": {
+        "orchestra/testbench": "~3.5.0",
+        "phpunit/phpunit" : "~4.0||~5.0||~6.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
     "autoload": {
         "psr-4": {
             "Malahierba\\ChileRut\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Malahierba\\ChileRut\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
     }
 }
