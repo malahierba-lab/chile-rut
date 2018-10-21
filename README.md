@@ -15,22 +15,16 @@ Sólo valida el número de identificación respecto a cumplir con el algoritmo q
 ### A travéz de composer
 
 1. Requiere el paquete `malahierba-lab/chile-rut`
-
   * Para Laravel 5.x
 ```bash
 composer require malahierba-lab/chile-rut
 ```
-
   * Para Laravel 4.2.x
 ```bash
 composer require malahierba-lab/chile-rut 4.2
 ```
 
 2. Ejecuta composer para actualizar dependencias:
-```bash
-composer install
-```
-   o
 ```bash
 composer update
 ```
@@ -52,7 +46,7 @@ Agrega el *Service Provider* dentro del arreglo `providers` del archivo *app/con
 'Malahierba\ChileRut\ChileRutServiceProvider'  
 ```
 
-### Agregar alias
+### Agregar facade
 
 Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del archivo *app/config/app.php* en el arreglo `aliases` para poder invocar las funcionalidades directamente.
 
@@ -113,7 +107,7 @@ $request->validate([
 
 ### Calcular dígito verificador
 
-En caso de que tengamos un rut sin dígito verificador y necesitemos calcularlo, se usa: `RUT::digitoVerificador($rut)`. Ej:
+En caso de que tengamos un RUT sin dígito verificador y necesitemos calcularlo, se usa: `RUT::digitoVerificador($rut)`. Ej:
 
 ```php
 $digitoVerificador = RUT::digitoVerificador(12345678);
