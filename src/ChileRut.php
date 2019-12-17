@@ -118,6 +118,12 @@ class ChileRut {
 		//Preparamos el RUT recibido
 		$numero = $this->clean($rut, false);
 
+		// Validamos que el número no sea un 'false' devuelto por la función clean
+		if (!$numero) {
+			// Si es 'false' el RUT es inválido
+			return false;
+		}
+
 		//Calculamos el dígito verificador
 		$txt		= array_reverse(str_split($numero));
 		$sum		= 0;
