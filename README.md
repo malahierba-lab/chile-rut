@@ -15,13 +15,13 @@ Sólo valida el número de identificación respecto a cumplir con el algoritmo q
 ### A travéz de composer
 
 1. Requiere el paquete `malahierba-lab/chile-rut`
-  * Para Laravel 5.x
+  * Para Laravel 5.x o superior
 ```bash
-composer require malahierba-lab/chile-rut
+composer require malahierba-lab/chile-rut 5.1.*
 ```
   * Para Laravel 4.2.x
 ```bash
-composer require malahierba-lab/chile-rut 4.2
+composer require malahierba-lab/chile-rut 4.2.*
 ```
 
 2. Ejecuta composer para actualizar dependencias:
