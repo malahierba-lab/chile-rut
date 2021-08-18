@@ -1,78 +1,100 @@
-# Chile Rut
+# Chile RUT
 
 ## Introducción
 
-Esta librería permite trabajar con el número de identificación que se utiliza en chile para personas, tanto naturales como jurídicas, pudiendo realizar las tareas de validación y formato.
+Esta librería permite trabajar con el número de identificación que se utiliza en Chile para personas, tanto naturales como jurídicas, pudiendo realizar las tareas de validación y formato.
 
-Se ha desarrollado pensando en **Laravel**.
+Se ha desarrollado pensando en [Laravel](https://laravel.com).
 
 ### Aclaración sobre el alcance
 
-Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, **no comprueba la existencia real de dicho rut**.
+Sólo valida el número de identificación respecto a cumplir con el algoritmo que se utiliza, **no comprueba la existencia real de dicho RUT**.
 
 ## Instalación
 
-Para instalar esta librería basta con que la agregues a la sección *require* del composer.json de tu proyecto y luego ejecutes *composer update*
+### A travéz de composer
 
-Para Laravel 5.x o superior
+1. Requiere el paquete `malahierba-lab/chile-rut`
+  * Para Laravel 5.x o superior
+```bash
+composer require malahierba-lab/chile-rut 5.1.*
+```
+  * Para Laravel 4.2.x
+```bash
+composer require malahierba-lab/chile-rut 4.2.*
+```
 
-    "malahierba-lab/chile-rut": "5.1.*"
+2. Ejecuta composer para actualizar dependencias:
+```bash
+composer update
+```
 
-Para Laravel 4.2
+**Importante:** Si estás usando actualmente la versión `dev-master` **debes cambiarlo** por una de las versiones indicadas de acuerdo a la versión de Laravel que estés utilizando.
 
-    "malahierba-lab/chile-rut": "4.2.*"
+### Agregar service provider
 
-**Importante:** Si estás usando actualmente la versión "dev-master" **debes cambiarlo** por una de las versiones indicadas de acuerdo a la versión de Laravel que estés utilizando.
+Agrega el *Service Provider* dentro del arreglo `providers` del archivo *app/config/app.php*
 
-Luego carga el Service Provider dentro del arreglo *'providers'* del archivo *app/config/app.php*
+* Para Laravel 5.x
+```php
+'providers' => [
+  Malahierba\ChileRut\ChileRutServiceProvider::class
+],
+```
+* Para Laravel 4.2
+```php
+'Malahierba\ChileRut\ChileRutServiceProvider'  
+```
 
-Para Laravel 5.x
+### Agregar facade
 
-    Malahierba\ChileRut\ChileRutServiceProvider::class
+Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del archivo *app/config/app.php* en el arreglo `aliases` para poder invocar las funcionalidades directamente.
 
-Para Laravel 4.2
+* Para Laravel 5.x
+```php
+'aliases' => [
+  'RUT' => Malahierba\ChileRut\Facades\ChileRut::class  
+]
+```
+* Para Laravel 4.2
+```php
+'RUT' => 'Malahierba\ChileRut\Facades\ChileRut'
+```
 
-    'Malahierba\ChileRut\ChileRutServiceProvider'
+Si no deseas usar un _Facade_, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
 
-Opcionalmente (pero altamente recomendado) puedes crear un alias dentro del archivo *app/config/app.php* en el arreglo 'aliases' para poder invocar las funcionalidades directamente.
-
-Para Laravel 5.x
-
-    'RUT' => Malahierba\ChileRut\Facades\ChileRut::class
-
-Para Laravel 4.2
-
-    'RUT' => 'Malahierba\ChileRut\Facades\ChileRut'
-
-Si no deseas usar un Facade, sino la clase misma, no olvides incorporarlo en la clase donde desees usarlo:
-
-	use Malahierba\ChileRut\ChileRut;
+```php
+use Malahierba\ChileRut\ChileRut;
+```
 
 ## Utilización
 
-### Validar un rut
+### Validar un RUT
 
-Para validar un rut chileno simplemente usas: RUT::check($rut_a_validar). Ej:
+Para validar un RUT chileno se usa `RUT::check($rut_a_validar)`. Ej:
 
-    if (RUT::check('12.345.678-9'))
-      echo 'es verdadero';
-    else
-      echo 'es falso';
+```php
+if (RUT::check('12.345.678-9'))
+  echo 'es verdadero';
+else
+  echo 'es falso';
+```
 
-Recuerda que en caso de no usar el Facade, debes usar la clase misma:
+Recuerda que en caso de no usar el _Facade_, debes usar la clase misma:
 
-    $chilerut = new ChileRut; //o \Malahierba\ChileRut\ChileRut en caso de que no hayas importado la clase
-
-    if ($chilerut::check('12.345.678-9'))
-        echo 'es verdadero';
-      else
-        echo 'es falso';
+```php
+$chilerut = new ChileRut; //o \Malahierba\ChileRut\ChileRut en caso de que no hayas importado la clase
+if ($chilerut::check('12.345.678-9'))
+    echo 'es verdadero';
+  else
+    echo 'es falso';
+```
 
 ### Validar un RUT con Laravel
 
 Ejemplo de validación de petición usando regla de validación personalizada:
 
-```
+```php
 use Malahierba\ChileRut\ChileRut;
 use Malahierba\ChileRut\Rules\ValidChileanRut;
 
@@ -85,22 +107,26 @@ $request->validate([
 
 ### Calcular dígito verificador
 
-En caso de que tengamos un rut sin digito verificador y necesitemos calcularlo, se usa: RUT::digitoVerificador($rut). Ej:
+En caso de que tengamos un RUT sin dígito verificador y necesitemos calcularlo, se usa: `RUT::digitoVerificador($rut)`. Ej:
 
-    $digitoVerificador = RUT::digitoVerificador($rut);
+```php
+$digitoVerificador = RUT::digitoVerificador(12345678);
+```
 
-OBS: considerando el caso en que el dígito verificador sea 'K', se determinó que esta función siempre devuelve un string para ser consistentes con su uso y poder realizar comparaciones con mayor control.
+> Obs: En el caso en que el dígito verificador sea `K`, se determinó que esta función siempre retorne un `string` para ser consistentes con su uso y poder realizar comparaciones con mayor control.
 
 ## Formatos de RUT soportados
 
-Si tenemos un rut de la forma: x.xxx.xxx-x son soportados los siguientes formatos para trabajar con él:
+Son soportados los siguientes formatos para trabajar con él:
 
-- x.xxx.xxx-x (con separador de miles y con guión)
-- xxxxxxx-x (sin separador de miles y con guión)
-- xxxxxxx (sin separador de miles y sin guión)
+| Formato     | Descripción                        |
+|-------------|------------------------------------|
+|`x.xxx.xxx-x`| Con separador de miles y con guión |
+|`xxxxxxx-x`  | Sin separador de miles y con guión |
+|`xxxxxxx`    | Sin separador de miles y sin guión |
 
-OBS: Cualquiera sea el formato podrá comenzar con cero(s). Ej: 0x.xxx.xxx-x está soportado.
+> Obs: Cualquiera sea el formato podrá comenzar con cero(s). Ej: `0x.xxx.xxx-x` está soportado.
 
 ## Licencia
 
-Esta librería se distribuye con licencia MIT, favor leer el archivo LICENSE para mayor referencia.
+Esta librería se distribuye con licencia MIT, favor leer el archivo [LICENSE](LICENSE) para mayor referencia.
